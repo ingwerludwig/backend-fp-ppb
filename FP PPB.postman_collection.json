@@ -1,0 +1,3829 @@
+{
+	"info": {
+		"_postman_id": "3e7299cf-129c-4f22-b9a5-13a037150c56",
+		"name": "FP PPB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26715144",
+		"_collection_link": "https://myprivatepersonal.postman.co/workspace/PPB-FP-BACKEND~31694c8e-6ab1-4438-b8cb-7f1db18bf3f3/collection/26715144-3e7299cf-129c-4f22-b9a5-13a037150c56?action=share&source=collection_link&creator=26715144"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "USER",
+					"item": [
+						{
+							"name": "REGISTER",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Ingwer Ludwig",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ingwer@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "769aD145",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "Ingwer Ludwig",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "ingwer@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "769aD145",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{host}}/register",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"register"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "136"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"88-yfK7s4D6ByRk8vkrKm/VUReWMDU\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 13 Dec 2023 09:16:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"code\": 201,\n    \"message\": \"Register Success\",\n    \"data\": {\n        \"name\": \"Ingwer Ludwig\",\n        \"email\": \"ingwer@gmail.com\",\n        \"password\": \"769aD145\"\n    }\n}"
+								},
+								{
+									"name": "FAILED PASSWORD",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "Ingwer Ludwig",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "ingwer@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "1234567",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{host}}/register",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"register"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "65"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"41-e+220PuZpQPuFXCPoU4UKL2T87U\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 13 Dec 2023 09:18:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"code\": 400,\n    \"message\": \"Email has been registered\"\n}"
+								}
+							]
+						},
+						{
+							"name": "LOGIN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"postman.setEnvironmentVariable(\"token\", jsonData.data.authentication_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "ingwer@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "769aD145",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "ingwer@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "769aD145",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{host}}/login",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJJbmd3ZXIgTHVkd2lnIiwiZW1haWwiOiJpbmd3ZXJAZ21haWwuY29tIiwiaWF0IjoxNzAyNDU5MTUyLCJleHAiOjE3MDUwNTExNTJ9.9_qJhQFKF8_mlzNRbCAKu9bOhNRiWFNZd0VmSyFJ1a0; Max-Age=86400; Path=/; Expires=Thu, 14 Dec 2023 09:19:12 GMT; HttpOnly"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "408"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"198-B5nMpSkjk6vfgG3DonRFZjQC7oA\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 13 Dec 2023 09:19:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Login Success\",\n    \"data\": {\n        \"object\": \"authentication_token\",\n        \"userId\": 1,\n        \"name\": \"Ingwer Ludwig\",\n        \"email\": \"ingwer@gmail.com\",\n        \"authentication_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJJbmd3ZXIgTHVkd2lnIiwiZW1haWwiOiJpbmd3ZXJAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MDI0NTkxNTIsImV4cCI6MTcwMzA2Mzk1Mn0.zFgbVZo70Y16Clg-PXQf7vuA5auU8sEps3H90BRdSjI\"\n    }\n}"
+								},
+								{
+									"name": "WRONG CREDENTIAL",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "ingwer@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "769aD1456",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{host}}/login",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "55"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"37-JTKmZxpvdj6gyxQq+z+qfWcWbeA\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 13 Dec 2023 09:19:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"code\": 400,\n    \"message\": \"Wrong Password!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "LOGOUT",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"if(pm.response.code == 200){\r",
+											"    postman.setEnvironmentVariable(\"token\", \"\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/logout",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "LOGOUT",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/logout",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"logout"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "refreshToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "61"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3d-y0VICDjh/10h1qRNoyDJjwYxSH4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 09 Jun 2023 10:11:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"You've Been Logged Out\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "ADMIN",
+					"item": [
+						{
+							"name": "LOGOUT",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"if(pm.response.code == 200){\r",
+											"    postman.setEnvironmentVariable(\"token\", \"\");\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/admin/logout",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"logout"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "LOGOUT",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/admin/logout",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"admin",
+												"logout"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4d-hsZ5RhrbhIRNwe83aaspFRiqpvM\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 09 Jun 2023 05:52:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "LOGIN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"postman.setEnvironmentVariable(\"token\", jsonData.data.authentication_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "admin@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "admin123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/admin/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "LOGIN",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "admin@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "admin123",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{host}}/admin/login",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"admin",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjg2MjkxMzYyLCJleHAiOjE2ODg4ODMzNjJ9.bW2ZHdOOGdeKd_zYs9WVRTmP85V88JU9LvUb7h8rsS8; Max-Age=86400; Path=/; Expires=Sat, 10 Jun 2023 06:16:02 GMT; HttpOnly"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "388"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"184-SaUVWjd+jqGbCycis5n+SCRb17w\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 09 Jun 2023 06:16:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Login Success\",\n    \"data\": {\n        \"object\": \"authentication_token\",\n        \"userId\": 1,\n        \"name\": \"Admin\",\n        \"email\": \"admin@gmail.com\",\n        \"authentication_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg2MjkxMzYyLCJleHAiOjE2ODY4OTYxNjJ9.fUbPTkFHkdUt_Eh4YwYgljXrsJT_8hUXHLBzN5BqDHQ\"\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "BLOGS",
+			"item": [
+				{
+					"name": "ALL BLOG",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/blogs",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/blogs",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"blogs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "236"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ec-YD+TME+xTRjMFGCqMnGPzFWqGnQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 09:57:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get All Blogs Success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"test blog\",\n            \"content\": \"Test Content Blog\",\n            \"image\": null,\n            \"createdAt\": \"2023-06-09T10:12:15.000Z\",\n            \"updatedAt\": \"2023-06-09T10:12:15.000Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "BLOG BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/blogs/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"blogs",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/blogs/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"blogs",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "235"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"eb-u9hQ/0LQoTauTkyY4ODSoB59uak\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 09:58:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get Blog By Id Success\",\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"test blog\",\n        \"content\": \"Test Content Blog\",\n        \"image\": null,\n        \"createdAt\": \"2023-06-09T10:12:15.000Z\",\n        \"updatedAt\": \"2023-06-09T10:12:15.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "CREATE BLOG",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test blog",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Test Content Blog",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "103650025_p0.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/blogs",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "test blog",
+											"type": "text"
+										},
+										{
+											"key": "content",
+											"value": "Test Content Blog",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/Volumes/IngwerSSD/Downloads/99388Stationary Vs Non-Stationary.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/blogs",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"blogs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "202"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ca-dVDviycI4hLdm1cFEcv9I+6vvIs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 11:29:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Create Blog Success\",\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"test blog\",\n        \"content\": \"Test Content Blog\",\n        \"updatedAt\": \"2023-12-13T11:29:04.288Z\",\n        \"createdAt\": \"2023-12-13T11:29:04.288Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE BLOG",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test update title",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "test update content",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "103811948_p0.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/blogs/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"blogs",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "test update title",
+											"type": "text"
+										},
+										{
+											"key": "content",
+											"value": "test update content",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/Users/ingwerludwig/Documents/asal-usul-tempe-yang-jadi-makanan-vegan-terenak-di-dunia-8pY5Dnq5Pb.jpg",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/blogs/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"blogs",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-sVv7OF25cqgNObRUTCgLALzeTJQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:11:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Update Blog Success\",\n    \"data\": [\n        1\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE BLOG",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/blogs/3?permanent=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"blogs",
+								"3"
+							],
+							"query": [
+								{
+									"key": "permanent",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE BLOG",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/blogs/3?permanent=1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"blogs",
+										"3"
+									],
+									"query": [
+										{
+											"key": "permanent",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-CgiehihhfyL7GF5qEIA1Z5LkhDk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Jun 2023 10:17:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Delete Blog Success\",\n    \"data\": 1\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "FAVORITES",
+			"item": [
+				{
+					"name": "USER FAVORITE BY USER ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users/3/favorite",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"favorite"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users/1/favorite",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"1",
+										"favorite"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2314"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"90a-s+5ZWHyEvXCB0Vbi0cCd125MY3k\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:44:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get User Favorite Success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"createdAt\": \"2023-12-13T10:43:50.000Z\",\n            \"updatedAt\": \"2023-12-13T10:43:50.000Z\",\n            \"MenuId\": 1,\n            \"UserId\": 1,\n            \"Menu\": {\n                \"id\": 1,\n                \"name\": \"Ayam Goreng\",\n                \"label\": \"ayam_goreng\",\n                \"kkal\": 221,\n                \"description\": \"<p>Ayam goreng adalah hidangan populer di banyak negara di seluruh dunia, termasuk Indonesia. Hidangan ini terdiri dari potongan ayam yang digoreng hingga kulitnya menjadi renyah dan berwarna kecokelatan, sementara dagingnya tetap juicy dan lezat di dalamnya.</p>\\n\\n        <p>Proses memasak ayam goreng dimulai dengan membersihkan dan memotong ayam menjadi potongan-potongan yang sesuai. Potongan ayam kemudian dibumbui dengan campuran rempah-rempah seperti garam, merica, bawang putih, dan bumbu-bumbu lainnya. Selain itu, beberapa resep ayam goreng khas Indonesia juga menggunakan bumbu rempah tradisional seperti kunyit, ketumbar, atau serai untuk memberikan aroma dan rasa yang khas.</p>\\n        \\n        <p>Ayam kemudian digoreng dalam minyak panas hingga matang dan berkulit renyah. Teknik penggorengan yang baik akan menciptakan kulit ayam yang garing, renyah, dan berwarna kecokelatan yang menambahkan cita rasa khusus pada hidangan.</p>\\n        \\n        <p>Ayam goreng sering disajikan dengan nasi putih hangat, lalapan segar seperti mentimun dan tomat, serta sambal sebagai pelengkapnya. Hidangan ini bisa disantap sebagai hidangan utama dalam makanan sehari-hari, dalam hidangan nasi goreng, atau sebagai hidangan di berbagai acara dan perayaan.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang terkenal karena rasanya yang gurih dan lezat. Tekstur kulit ayam yang renyah dan daging ayam yang juicy dan lembut menjadikannya hidangan yang disukai oleh banyak orang. Variasi dalam bumbu dan rempah-rempah yang digunakan juga memberikan keunikan dalam cita rasa ayam goreng dari berbagai daerah.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang sering dijumpai di restoran, warung makan, atau di rumah-rumah sebagai hidangan favorit keluarga. Rasanya yang enak dan proses memasak yang relatif sederhana menjadikan ayam goreng sebagai salah satu hidangan yang populer dan disukai secara luas.</p>\\n        \",\n                \"image\": \"\",\n                \"createdAt\": \"2023-12-13T10:43:30.000Z\",\n                \"updatedAt\": \"2023-12-13T10:43:30.000Z\",\n                \"deletedAt\": null\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "CURRENT USER FAVORITE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/user/favorite",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"favorite"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user/favorite",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"favorite"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2314"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"90a-s+5ZWHyEvXCB0Vbi0cCd125MY3k\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:44:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get User Favorite Success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"createdAt\": \"2023-12-13T10:43:50.000Z\",\n            \"updatedAt\": \"2023-12-13T10:43:50.000Z\",\n            \"MenuId\": 1,\n            \"UserId\": 1,\n            \"Menu\": {\n                \"id\": 1,\n                \"name\": \"Ayam Goreng\",\n                \"label\": \"ayam_goreng\",\n                \"kkal\": 221,\n                \"description\": \"<p>Ayam goreng adalah hidangan populer di banyak negara di seluruh dunia, termasuk Indonesia. Hidangan ini terdiri dari potongan ayam yang digoreng hingga kulitnya menjadi renyah dan berwarna kecokelatan, sementara dagingnya tetap juicy dan lezat di dalamnya.</p>\\n\\n        <p>Proses memasak ayam goreng dimulai dengan membersihkan dan memotong ayam menjadi potongan-potongan yang sesuai. Potongan ayam kemudian dibumbui dengan campuran rempah-rempah seperti garam, merica, bawang putih, dan bumbu-bumbu lainnya. Selain itu, beberapa resep ayam goreng khas Indonesia juga menggunakan bumbu rempah tradisional seperti kunyit, ketumbar, atau serai untuk memberikan aroma dan rasa yang khas.</p>\\n        \\n        <p>Ayam kemudian digoreng dalam minyak panas hingga matang dan berkulit renyah. Teknik penggorengan yang baik akan menciptakan kulit ayam yang garing, renyah, dan berwarna kecokelatan yang menambahkan cita rasa khusus pada hidangan.</p>\\n        \\n        <p>Ayam goreng sering disajikan dengan nasi putih hangat, lalapan segar seperti mentimun dan tomat, serta sambal sebagai pelengkapnya. Hidangan ini bisa disantap sebagai hidangan utama dalam makanan sehari-hari, dalam hidangan nasi goreng, atau sebagai hidangan di berbagai acara dan perayaan.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang terkenal karena rasanya yang gurih dan lezat. Tekstur kulit ayam yang renyah dan daging ayam yang juicy dan lembut menjadikannya hidangan yang disukai oleh banyak orang. Variasi dalam bumbu dan rempah-rempah yang digunakan juga memberikan keunikan dalam cita rasa ayam goreng dari berbagai daerah.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang sering dijumpai di restoran, warung makan, atau di rumah-rumah sebagai hidangan favorit keluarga. Rasanya yang enak dan proses memasak yang relatif sederhana menjadikan ayam goreng sebagai salah satu hidangan yang populer dan disukai secara luas.</p>\\n        \",\n                \"image\": \"\",\n                \"createdAt\": \"2023-12-13T10:43:30.000Z\",\n                \"updatedAt\": \"2023-12-13T10:43:30.000Z\",\n                \"deletedAt\": null\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "CREATE CURRENT USER FAVORITE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "menuId",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/user/favorite",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"favorite"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"menuId\" :1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/user/favorite",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"favorite"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b7-2kRja9Pu/XlW8jS9SNHBMbJRFPI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:43:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Create User Favorite Success\",\n    \"data\": {\n        \"id\": 1,\n        \"UserId\": 1,\n        \"MenuId\": 1,\n        \"updatedAt\": \"2023-12-13T10:43:50.960Z\",\n        \"createdAt\": \"2023-12-13T10:43:50.960Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE FAVORITE BY ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/users/favorite/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"favorite",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE FAVORITE BY ID",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/users/favorite/5",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"favorite",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-+SZJW3uYujrxdapiKPtopnuCnds\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Jun 2023 10:19:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Delete User Success\",\n    \"data\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "HISTORIES",
+			"item": [
+				{
+					"name": "USER HISTORY BY USER ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users/1/history",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"1",
+								"history"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users/2/history",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"2",
+										"history"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2360"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"938-3jiG8GtXe4qFFaSMS84q3382tLE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 11:01:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get User History Success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"image\": null,\n            \"date\": \"2023-12-13T10:53:46.000Z\",\n            \"createdAt\": \"2023-12-13T10:53:46.000Z\",\n            \"updatedAt\": \"2023-12-13T10:53:46.000Z\",\n            \"MenuId\": 1,\n            \"UserId\": 2,\n            \"Menu\": {\n                \"id\": 1,\n                \"name\": \"Ayam Goreng\",\n                \"label\": \"ayam_goreng\",\n                \"kkal\": 221,\n                \"description\": \"<p>Ayam goreng adalah hidangan populer di banyak negara di seluruh dunia, termasuk Indonesia. Hidangan ini terdiri dari potongan ayam yang digoreng hingga kulitnya menjadi renyah dan berwarna kecokelatan, sementara dagingnya tetap juicy dan lezat di dalamnya.</p>\\n\\n        <p>Proses memasak ayam goreng dimulai dengan membersihkan dan memotong ayam menjadi potongan-potongan yang sesuai. Potongan ayam kemudian dibumbui dengan campuran rempah-rempah seperti garam, merica, bawang putih, dan bumbu-bumbu lainnya. Selain itu, beberapa resep ayam goreng khas Indonesia juga menggunakan bumbu rempah tradisional seperti kunyit, ketumbar, atau serai untuk memberikan aroma dan rasa yang khas.</p>\\n        \\n        <p>Ayam kemudian digoreng dalam minyak panas hingga matang dan berkulit renyah. Teknik penggorengan yang baik akan menciptakan kulit ayam yang garing, renyah, dan berwarna kecokelatan yang menambahkan cita rasa khusus pada hidangan.</p>\\n        \\n        <p>Ayam goreng sering disajikan dengan nasi putih hangat, lalapan segar seperti mentimun dan tomat, serta sambal sebagai pelengkapnya. Hidangan ini bisa disantap sebagai hidangan utama dalam makanan sehari-hari, dalam hidangan nasi goreng, atau sebagai hidangan di berbagai acara dan perayaan.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang terkenal karena rasanya yang gurih dan lezat. Tekstur kulit ayam yang renyah dan daging ayam yang juicy dan lembut menjadikannya hidangan yang disukai oleh banyak orang. Variasi dalam bumbu dan rempah-rempah yang digunakan juga memberikan keunikan dalam cita rasa ayam goreng dari berbagai daerah.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang sering dijumpai di restoran, warung makan, atau di rumah-rumah sebagai hidangan favorit keluarga. Rasanya yang enak dan proses memasak yang relatif sederhana menjadikan ayam goreng sebagai salah satu hidangan yang populer dan disukai secara luas.</p>\\n        \",\n                \"image\": \"\",\n                \"createdAt\": \"2023-12-13T10:50:25.000Z\",\n                \"updatedAt\": \"2023-12-13T10:50:25.000Z\",\n                \"deletedAt\": null\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "CURRENT USER HISTORY",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/user/history",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"history"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user/history",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"history"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2360"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"938-3jiG8GtXe4qFFaSMS84q3382tLE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:54:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get User History Success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"image\": null,\n            \"date\": \"2023-12-13T10:53:46.000Z\",\n            \"createdAt\": \"2023-12-13T10:53:46.000Z\",\n            \"updatedAt\": \"2023-12-13T10:53:46.000Z\",\n            \"MenuId\": 1,\n            \"UserId\": 2,\n            \"Menu\": {\n                \"id\": 1,\n                \"name\": \"Ayam Goreng\",\n                \"label\": \"ayam_goreng\",\n                \"kkal\": 221,\n                \"description\": \"<p>Ayam goreng adalah hidangan populer di banyak negara di seluruh dunia, termasuk Indonesia. Hidangan ini terdiri dari potongan ayam yang digoreng hingga kulitnya menjadi renyah dan berwarna kecokelatan, sementara dagingnya tetap juicy dan lezat di dalamnya.</p>\\n\\n        <p>Proses memasak ayam goreng dimulai dengan membersihkan dan memotong ayam menjadi potongan-potongan yang sesuai. Potongan ayam kemudian dibumbui dengan campuran rempah-rempah seperti garam, merica, bawang putih, dan bumbu-bumbu lainnya. Selain itu, beberapa resep ayam goreng khas Indonesia juga menggunakan bumbu rempah tradisional seperti kunyit, ketumbar, atau serai untuk memberikan aroma dan rasa yang khas.</p>\\n        \\n        <p>Ayam kemudian digoreng dalam minyak panas hingga matang dan berkulit renyah. Teknik penggorengan yang baik akan menciptakan kulit ayam yang garing, renyah, dan berwarna kecokelatan yang menambahkan cita rasa khusus pada hidangan.</p>\\n        \\n        <p>Ayam goreng sering disajikan dengan nasi putih hangat, lalapan segar seperti mentimun dan tomat, serta sambal sebagai pelengkapnya. Hidangan ini bisa disantap sebagai hidangan utama dalam makanan sehari-hari, dalam hidangan nasi goreng, atau sebagai hidangan di berbagai acara dan perayaan.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang terkenal karena rasanya yang gurih dan lezat. Tekstur kulit ayam yang renyah dan daging ayam yang juicy dan lembut menjadikannya hidangan yang disukai oleh banyak orang. Variasi dalam bumbu dan rempah-rempah yang digunakan juga memberikan keunikan dalam cita rasa ayam goreng dari berbagai daerah.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang sering dijumpai di restoran, warung makan, atau di rumah-rumah sebagai hidangan favorit keluarga. Rasanya yang enak dan proses memasak yang relatif sederhana menjadikan ayam goreng sebagai salah satu hidangan yang populer dan disukai secara luas.</p>\\n        \",\n                \"image\": \"\",\n                \"createdAt\": \"2023-12-13T10:50:25.000Z\",\n                \"updatedAt\": \"2023-12-13T10:50:25.000Z\",\n                \"deletedAt\": null\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE HISTORY BY ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/users/history/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"history",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE HISTORY BY ID",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/users/history/2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"history",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-5usj6ts4EAT/Gs51k4Zwwz8C9tk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Jun 2023 10:21:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Delete User History Success\",\n    \"data\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "CREATE CURRENT USER HISTORY",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "menuId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "103650025_p0.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/user/history",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"history"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "menuId",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/user/history",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"history"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "218"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"da-q7lZJ0Si4Wn3hclmJFANP5FhDuM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:53:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Create User History Success\",\n    \"data\": {\n        \"date\": \"2023-12-13T10:53:46.410Z\",\n        \"id\": 1,\n        \"UserId\": 2,\n        \"MenuId\": \"1\",\n        \"updatedAt\": \"2023-12-13T10:53:46.410Z\",\n        \"createdAt\": \"2023-12-13T10:53:46.410Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MENUS",
+			"item": [
+				{
+					"name": "ALL MENU",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/menus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/menus",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menus"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52979"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cef3-GSI7g6IP+e6E9iFnukBWeG/dwOs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:13:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get All Menu Success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Ayam Goreng\",\n            \"label\": \"ayam_goreng\",\n            \"kkal\": 221,\n            \"description\": \"<p>Ayam goreng adalah hidangan populer di banyak negara di seluruh dunia, termasuk Indonesia. Hidangan ini terdiri dari potongan ayam yang digoreng hingga kulitnya menjadi renyah dan berwarna kecokelatan, sementara dagingnya tetap juicy dan lezat di dalamnya.</p>\\n\\n        <p>Proses memasak ayam goreng dimulai dengan membersihkan dan memotong ayam menjadi potongan-potongan yang sesuai. Potongan ayam kemudian dibumbui dengan campuran rempah-rempah seperti garam, merica, bawang putih, dan bumbu-bumbu lainnya. Selain itu, beberapa resep ayam goreng khas Indonesia juga menggunakan bumbu rempah tradisional seperti kunyit, ketumbar, atau serai untuk memberikan aroma dan rasa yang khas.</p>\\n        \\n        <p>Ayam kemudian digoreng dalam minyak panas hingga matang dan berkulit renyah. Teknik penggorengan yang baik akan menciptakan kulit ayam yang garing, renyah, dan berwarna kecokelatan yang menambahkan cita rasa khusus pada hidangan.</p>\\n        \\n        <p>Ayam goreng sering disajikan dengan nasi putih hangat, lalapan segar seperti mentimun dan tomat, serta sambal sebagai pelengkapnya. Hidangan ini bisa disantap sebagai hidangan utama dalam makanan sehari-hari, dalam hidangan nasi goreng, atau sebagai hidangan di berbagai acara dan perayaan.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang terkenal karena rasanya yang gurih dan lezat. Tekstur kulit ayam yang renyah dan daging ayam yang juicy dan lembut menjadikannya hidangan yang disukai oleh banyak orang. Variasi dalam bumbu dan rempah-rempah yang digunakan juga memberikan keunikan dalam cita rasa ayam goreng dari berbagai daerah.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang sering dijumpai di restoran, warung makan, atau di rumah-rumah sebagai hidangan favorit keluarga. Rasanya yang enak dan proses memasak yang relatif sederhana menjadikan ayam goreng sebagai salah satu hidangan yang populer dan disukai secara luas.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Ayam Pop\",\n            \"label\": \"ayam_pop\",\n            \"kkal\": 265,\n            \"description\": \"<p>Ayam pop adalah hidangan khas dari Jawa Tengah, Indonesia. Hidangan ini terdiri dari potongan-potongan ayam yang digoreng hingga kulitnya menjadi renyah dan berwarna kecokelatan, namun tetap memiliki daging yang lembut dan juicy di dalamnya.</p>\\n\\n        <p>Proses memasak ayam pop dimulai dengan membersihkan dan memotong ayam menjadi potongan-potongan yang sesuai. Potongan ayam kemudian dibumbui dengan campuran rempah-rempah seperti bawang putih, merica, garam, dan bumbu-bumbu lainnya sesuai dengan selera. Ayam kemudian digoreng dalam minyak panas hingga matang dan berkulit renyah.</p>\\n        \\n        <p>Ayam pop memiliki ciri khas kulit ayam yang kering, renyah, dan berwarna kecokelatan. Meskipun kulitnya yang renyah, daging ayam di dalamnya tetap lembut dan juicy. Hal ini karena proses penggorengan yang tepat sehingga menjaga kelembutan daging ayam.</p>\\n        \\n        <p>Ayam pop sering disajikan dengan nasi putih hangat dan pelengkap seperti sambal, acar, atau sayuran rebus. Rasanya yang gurih, renyah di luar, dan lembut di dalam menjadikannya hidangan yang populer di kalangan pecinta masakan Indonesia.</p>\\n        \\n        <p>Hidangan ayam pop memiliki rasa yang lezat dan kaya rempah. Tekstur kulit ayam yang renyah dan daging yang juicy menciptakan kombinasi yang sempurna. Hidangan ini bisa dinikmati sebagai hidangan utama dalam makanan sehari-hari atau sebagai hidangan istimewa pada acara-acara khusus.</p>\\n        \\n        <p>Ayam pop merupakan salah satu hidangan yang mencerminkan keanekaragaman kuliner Indonesia dan menjadi favorit di berbagai daerah. Rasanya yang lezat dan proses memasaknya yang sederhana menjadikan ayam pop sebagai hidangan yang populer dan sering dicari oleh pecinta masakan Indonesia.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Daging Rendang\",\n            \"label\": \"daging_rendang\",\n            \"kkal\": 238,\n            \"description\": \"<p>Daging rendang adalah hidangan khas Indonesia, khususnya dari daerah Minangkabau, Sumatra Barat. Hidangan ini terkenal karena proses memasak yang lama dan penggunaan berbagai rempah-rempah yang kaya.</p>\\n\\n        <p>Dalam pembuatan daging rendang, potongan daging sapi yang biasanya menggunakan potongan daging yang berlemak dan berurat, seperti daging sandung lamur atau daging sapi bagian pinggul, dimasak dalam campuran rempah-rempah yang khas. Beberapa rempah-rempah yang sering digunakan dalam rendang antara lain adalah cabai merah, bawang merah, bawang putih, serai, lengkuas, jahe, daun jeruk, kayu manis, dan kelapa parut.</p>\\n        \\n        <p>Proses memasak rendang melibatkan pemasakan yang lambat dan perlahan dalam campuran bumbu dan santan kelapa. Dalam proses ini, daging dan bumbu dimasak dalam waktu yang cukup lama hingga daging menjadi empuk, rempah-rempah meresap, dan kuah menyusut hingga mengental. Proses memasak yang lambat dan penggunaan berbagai rempah-rempah tersebut memberikan cita rasa yang kaya, kompleks, dan gurih pada daging rendang.</p>\\n        \\n        <p>Daging rendang memiliki cita rasa yang unik dengan perpaduan rasa pedas, gurih, manis, dan rempah-rempah yang khas. Daging yang dimasak dalam rendang menjadi empuk, lezat, dan memiliki tekstur yang kenyal karena penggunaan santan yang kental dan proses pemasakan yang lama.</p>\\n        \\n        <p>Rendang biasanya disajikan sebagai hidangan utama dalam makanan Indonesia dan sering dihidangkan dengan nasi putih hangat. Hidangan ini juga menjadi hidangan istimewa pada acara-acara tertentu seperti perayaan atau acara keluarga.</p>\\n        \\n        <p>Daging rendang adalah hidangan yang populer dan dihargai oleh banyak orang karena kelezatannya yang khas dan proses memasak yang melibatkan perpaduan rempah-rempah yang kompleks. Hidangan ini juga menjadi salah satu ikon kuliner Indonesia yang terkenal di dunia.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Dendeng Batokok\",\n            \"label\": \"dendeng_batokok\",\n            \"kkal\": 250,\n            \"description\": \"<p>Dendeng batokok adalah hidangan daging asap kering yang berasal dari Minangkabau, Sumatra Barat, Indonesia. Hidangan ini terbuat dari daging sapi yang diiris tipis dan diolah dengan cara diasap dan dikeringkan hingga menjadi keripik daging yang renyah dan gurih.</p>\\n\\n        <p>Proses pembuatan dendeng batokok dimulai dengan memotong daging sapi menjadi irisan tipis dan merendamnya dalam bumbu marinasi yang terdiri dari campuran kecap manis, garam, bawang putih, merica, dan bumbu-bumbu lainnya sesuai dengan selera. Setelah direndam, irisan daging diangin-anginkan atau dikeringkan sebentar sebelum proses pengasapan.</p>\\n        \\n        <p>Daging sapi yang telah direndam kemudian diasap menggunakan kayu bakar atau arang dalam waktu yang cukup lama, sehingga mendapatkan aroma asap yang khas. Setelah proses pengasapan, irisan daging dikeringkan hingga menjadi keripik daging yang kering, renyah, dan memiliki rasa yang kaya.</p>\\n        \\n        <p>Dendeng batokok sering disajikan sebagai makanan ringan atau camilan yang nikmat. Hidangan ini dapat dinikmati secara langsung, digunakan sebagai tambahan dalam hidangan mie atau nasi goreng, atau dijadikan sebagai lauk pendamping dalam hidangan utama.</p>\\n        \\n        <p>Dendeng batokok memiliki cita rasa yang gurih, manis, asin, dan memiliki aroma yang khas karena proses pengasapannya. Tekstur keripik daging yang renyah dan daging yang sedikit kenyal membuatnya menjadi camilan yang populer di kalangan pecinta makanan Indonesia.</p>\\n        \\n        <p>Hidangan dendeng batokok merupakan salah satu contoh kuliner tradisional Minangkabau yang kaya akan rasa dan budaya. Rasanya yang khas dan kelezatannya membuatnya menjadi hidangan yang populer dan dicari oleh banyak orang yang ingin mencicipi kelezatan makanan khas Sumatra Barat.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Gulai Ikan\",\n            \"label\": \"gulai_ikan\",\n            \"kkal\": 106,\n            \"description\": \"<p>Gulai ikan adalah hidangan yang terdiri dari potongan ikan yang dimasak dalam kuah gulai yang kaya rempah-rempah dan santan. Hidangan ini merupakan salah satu hidangan khas Indonesia dan dapat ditemukan dalam berbagai variasi dan gaya memasak di seluruh nusantara.</p>\\n\\n        <p>Proses memasak gulai ikan dimulai dengan memilih ikan segar dan membersihkannya. Ikan kemudian dipotong menjadi potongan-potongan yang sesuai dan dibumbui dengan garam dan air jeruk nipis untuk menghilangkan bau amisnya. Setelah itu, potongan ikan ditumis dengan bumbu-bumbu seperti bawang merah, bawang putih, jahe, lengkuas, serai, cabai, dan rempah-rempah lainnya sesuai selera.</p>\\n        \\n        <p>Setelah bumbu-bumbu matang, santan ditambahkan ke dalam tumisan dan diaduk hingga merata. Potongan ikan kemudian dimasukkan ke dalam kuah gulai dan dimasak hingga ikan matang dan meresap dengan rasa rempah yang kaya.</p>\\n        \\n        <p>Gulai ikan biasanya memiliki tekstur lembut dan cita rasa yang kaya dan lezat. Kuah gulai umumnya berwarna kekuningan atau kecokelatan karena penggunaan rempah-rempah seperti kunyit, lengkuas, dan cabai. Gulai ikan sering disajikan dengan nasi putih hangat sebagai hidangan utama dalam makanan Indonesia.</p>\\n        \\n        <p>Berdasarkan variasi dan budaya regional, ada banyak jenis gulai ikan yang berbeda, seperti gulai ikan mas, gulai ikan patin, gulai ikan kakap, dan lain-lain. Setiap varietas memiliki karakteristik dan bumbu khas yang membedakannya.</p>\\n        \\n        <p>Gulai ikan adalah hidangan yang lezat dan populer di Indonesia, dan dihargai karena kelezatan dan kekayaan rempah-rempahnya. Hidangan ini mencerminkan keanekaragaman budaya kuliner Indonesia serta penggunaan rempah-rempah yang khas dalam masakan tradisional.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Gulai Tambusu\",\n            \"label\": \"gulai_tambusu\",\n            \"kkal\": 0,\n            \"description\": \"<p>Gulai tambusu adalah makanan khas dari Minang.Makanan ini terbuat dari bahan utama usus sapi. Usus sapi tersebut di dalamnya diberi isian telur dan tahu. Selanjutnya bahan utama itu dimasak dengan aneka bumbu, rempah-rempah, dan santan. Gulai tambusu termasuk hidangan berkuah yang kuahnya berasal dari santan kelapa.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Gulai Tunjang\",\n            \"label\": \"gulai_tunjang\",\n            \"kkal\": 61,\n            \"description\": \"Gulai tunjang adalah hidangan tradisional yang berasal dari Minangkabau, Sumatra Barat, Indonesia. Hidangan ini terkenal karena menggunakan bahan utama berupa tulang kaki atau kaki sapi yang dimasak dengan bumbu rempah-rempah yang kaya dan kental.\\n\\n        Proses pembuatan gulai tunjang dimulai dengan merebus kaki sapi hingga empuk dan dagingnya terlepas dari tulangnya. Setelah itu, kaki sapi dipotong menjadi potongan kecil dan dimasak dalam kuah gulai yang kaya rempah-rempah.\\n        \\n        Bumbu gulai tunjang terdiri dari campuran rempah-rempah seperti lengkuas, kunyit, jahe, bawang merah, bawang putih, serai, daun jeruk, cabai, dan rempah lainnya. Bumbu-bumbu ini dihaluskan atau diolah menjadi pasta, kemudian ditumis dengan minyak kelapa untuk mengeluarkan aroma dan rasa yang khas.\\n        \\n        Setelah bumbu tumis matang, potongan kaki sapi dimasukkan ke dalam bumbu dan kuah gulai. Proses memasak dilanjutkan dengan merebus kembali dan membiarkan semua bumbu meresap ke dalam daging dan tulang sapi, menciptakan rasa yang kaya dan lezat.\\n        \\n        Gulai tunjang biasanya memiliki cita rasa yang kaya, pedas, dan rempah-rempah yang khas. Hidangan ini sering disajikan dengan nasi putih hangat, roti, atau ketupat, serta ditambahkan dengan lalapan seperti daun singkong atau daun kemangi untuk menyempurnakan rasanya.\\n        \\n        Gulai tunjang merupakan hidangan yang membutuhkan waktu dan kesabaran dalam proses memasaknya. Namun, hasilnya adalah hidangan yang lezat dan menggugah selera, dengan daging yang empuk dan tulang yang lepas dari daging, sehingga membuatnya menjadi hidangan yang disukai oleh pecinta masakan Minangkabau.\",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Lele Goreng\",\n            \"label\": \"lele_goreng\",\n            \"kkal\": 105,\n            \"description\": \"<p>Lele goreng adalah hidangan yang terdiri dari ikan lele yang digoreng hingga renyah di luar namun tetap juicy dan lembut di dalamnya. Hidangan ini populer dalam kuliner Indonesia dan merupakan salah satu hidangan favorit di banyak restoran dan warung makan.</p>\\n\\n        <p>Proses memasak lele goreng dimulai dengan membersihkan ikan lele dan mengeringkannya. Ikan lele kemudian dibumbui dengan campuran rempah-rempah seperti garam, merica, bawang putih, dan bumbu-bumbu lainnya. Setelah itu, ikan lele digoreng dalam minyak panas hingga berwarna kecokelatan dan renyah di luar, sementara tetap lembut dan juicy di dalamnya.</p>\\n        \\n        <p>Lele goreng sering disajikan dengan pelengkap seperti nasi putih, sambal, atau lalapan seperti mentimun dan tomat. Rasanya yang gurih, renyah di luar, dan lembut di dalam membuatnya menjadi hidangan yang sangat nikmat dan disukai oleh banyak orang.</p>\\n        \\n        <p>Selain kelezatannya, lele goreng juga mengandung nutrisi penting. Lele adalah sumber protein yang baik, serta mengandung asam lemak omega-3, vitamin D, dan mineral seperti selenium dan fosfor. Ini menjadikannya pilihan yang baik untuk mendapatkan asupan nutrisi yang seimbang.</p>\\n        \\n        <p>Lele goreng adalah hidangan yang cocok untuk dinikmati dalam berbagai kesempatan, baik sebagai hidangan utama dalam makan siang atau makan malam, maupun sebagai hidangan pelengkap dalam menu makanan Indonesia. Kombinasi cita rasa yang gurih, tekstur yang renyah, dan kandungan gizi yang bermanfaat menjadikan lele goreng sebagai hidangan yang populer dan terus diminati.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Nasi\",\n            \"label\": \"nasi\",\n            \"kkal\": 252,\n            \"description\": \"<p>Nasi adalah makanan pokok yang sangat penting dalam banyak budaya di seluruh dunia, terutama di Asia. Nasi merupakan biji-bijian dari tanaman padi yang diolah dan dimasak menjadi hidangan yang lezat dan bergizi.</p>\\n\\n        <p>Proses produksi nasi dimulai dengan menanam, panen, dan menggiling padi. Setelah itu, padi dapat diolah dengan berbagai cara, seperti merebus, mengukus, atau menggunakan alat khusus seperti rice cooker. Hasil akhirnya adalah butiran nasi yang lembut, beraroma harum, dan memiliki tekstur yang kenyal.</p>\\n        \\n        <p>Nasi sering disajikan sebagai lauk pendamping atau dasar dalam hidangan utama. Banyak hidangan seperti nasi goreng, nasi kuning, nasi putih, nasi biryani, dan sushi menggunakan nasi sebagai komponen utama. Nasi juga dapat disajikan dengan berbagai hidangan seperti daging, ikan, sayuran, atau hidangan berkuah.</p>\\n        \\n        <p>Kelezatan nasi tidak hanya berasal dari rasanya yang netral dan komplementer terhadap hidangan lainnya, tetapi juga dari kemampuannya untuk menyerap cita rasa dan saus yang digunakan dalam hidangan. Hal ini menjadikan nasi sebagai pendamping yang serbaguna untuk hidangan berbagai budaya dan masakan.</p>\\n        \\n        <p>Selain sebagai sumber karbohidrat yang penting, nasi juga mengandung sejumlah nutrisi seperti vitamin B, serat, dan mineral seperti zat besi dan magnesium. Nasi juga rendah lemak dan bebas gluten, menjadikannya pilihan yang populer di berbagai pola makan.</p>\\n        \\n        <p>Nasi memiliki peran kultural yang kuat dan sering menjadi simbol kesuburan, kelimpahan, dan persatuan dalam banyak masyarakat. Cara memasak, menyajikan, dan mengonsumsi nasi dapat bervariasi dari satu budaya ke budaya lainnya.</p>\\n        \\n        <p>Nasi adalah makanan yang mendalam maknanya dan menjadi bagian penting dalam hidangan di berbagai belahan dunia. Rasanya yang lezat, teksturnya yang kenyal, serta peran budaya dan gizi yang dimilikinya menjadikannya sebagai makanan yang dicintai dan dikonsumsi oleh banyak orang di seluruh dunia.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Tahu Goreng\",\n            \"label\": \"tahu_goreng\",\n            \"kkal\": 35,\n            \"description\": \"<p>Tahu goreng adalah hidangan yang terdiri dari tahu yang digoreng hingga renyah di luar namun tetap lembut di dalamnya. Hidangan ini populer dalam kuliner Indonesia dan dapat ditemukan dalam berbagai variasi dan gaya memasak.</p>\\n\\n        <p>Proses pembuatan tahu goreng dimulai dengan memotong tahu menjadi potongan-potongan kecil atau membelahnya menjadi dua bagian tipis. Tahu kemudian bisa direndam dalam bumbu atau saus untuk memberikan rasa tambahan sebelum digoreng. Setelah itu, tahu digoreng dalam minyak panas hingga berwarna kecokelatan dan renyah di luar.</p>\\n        \\n        <p>Tahu goreng sering disajikan dengan pelengkap seperti saus kacang, saus pedas, atau saus kecap. Hidangan ini dapat dijadikan lauk pendamping dalam nasi goreng, mi goreng, atau sebagai makanan ringan yang lezat.</p>\\n        \\n        <p>Tahu, bahan utama dalam tahu goreng, adalah produk kedelai yang kaya akan protein nabati, serat, dan nutrisi lainnya. Dengan menggoreng tahu, hidangan ini menghasilkan tekstur yang lembut di dalam dan lapisan luar yang garing. Tahu goreng juga dapat disesuaikan dengan selera masing-masing, baik dengan menambahkan bumbu khusus pada tahu sebelum digoreng atau dengan menyajikannya dengan saus atau tambahan lainnya.</p>\\n        \\n        <p>Tahu goreng adalah hidangan yang populer dan banyak disukai oleh banyak orang karena rasanya yang gurih dan teksturnya yang menarik. Hidangan ini tidak hanya cocok untuk vegetarian, tetapi juga merupakan pilihan yang sehat dan bergizi bagi siapa pun yang menginginkan hidangan yang lezat dan bernutrisi.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 11,\n            \"name\": \"Telur Dadar Goreng\",\n            \"label\": \"telur_dadar_goreng\",\n            \"kkal\": 153,\n            \"description\": \"<p>Telur dadar goreng adalah hidangan yang terdiri dari telur yang dikocok bersama bumbu-bumbu dan digoreng hingga matang. Hidangan ini sederhana namun lezat dan sering menjadi bagian dari menu sarapan atau makanan ringan di banyak budaya di seluruh dunia.</p>\\n\\n        <p>Untuk membuat telur dadar goreng, telur dipecahkan dan dikocok bersama dengan garam, merica, dan bumbu lainnya sesuai selera. Kemudian, campuran telur ini digoreng di atas wajan dengan sedikit minyak atau mentega hingga matang. Proses ini menghasilkan selembar telur dadar yang tipis dan lembut.</p>\\n        \\n        <p>Telur dadar goreng bisa disajikan dengan berbagai cara. Beberapa orang menyukai telur dadar yang simpel, tanpa tambahan bahan lainnya. Namun, Anda juga dapat menambahkan irisan bawang hijau, daun peterseli, keju parut, potongan sayuran, atau daging cincang ke dalam adonan telur sebelum digoreng untuk memberikan variasi rasa dan tekstur.</p>\\n        \\n        <p>Telur dadar goreng sering disajikan dengan nasi hangat, roti panggang, atau bagian dari menu sarapan lengkap dengan lauk pendamping seperti sosis, bacon, atau ham. Rasanya yang lezat, serta tekstur lembut dan padat dari telur dadar, menjadikannya hidangan yang memuaskan dan mudah disesuaikan dengan selera individu.</p>\\n        \\n        <p>Selain enak, telur dadar goreng juga merupakan sumber protein yang baik dan mengandung nutrisi penting seperti vitamin A, vitamin B12, zat besi, dan selenium. Ini menjadikannya pilihan makanan yang bergizi untuk memulai hari atau sebagai camilan yang menyenangkan.</p>\\n        \\n        <p>Telur dadar goreng adalah hidangan yang sederhana namun serbaguna, cocok untuk dinikmati dalam berbagai kesempatan. Kelezatan dan kemudahannya dalam persiapan menjadikannya sebagai salah satu hidangan favorit di meja makan banyak orang di seluruh dunia.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Telur Mata Sapi Goreng\",\n            \"label\": \"telur_matasapi_goreng\",\n            \"kkal\": 120,\n            \"description\": \"<p>Telur Mata sapi goreng adalah hidangan yang terdiri dari telur yang digoreng dengan kuning telur yang masih setengah matang, sehingga terlihat seperti &quot;mata sapi&quot; yang belum sepenuhnya matang. Hidangan ini populer di berbagai negara dan sering disajikan sebagai lauk pendamping dalam menu sarapan atau makan siang.</p>\\n\\n        <p>Proses memasak telur Mata sapi goreng dimulai dengan memanaskan sedikit minyak di atas wajan anti lengket. Setelah minyak panas, telur pecah di atas wajan, tetapi kuning telur tidak dipecahkan. Telur kemudian digoreng dengan api sedang hingga putih telur matang dengan kuning telur yang masih setengah matang.</p>\\n        \\n        <p>Hasilnya adalah telur dengan putih telur yang padat dan kuning telur yang lembut dan sedikit berair di bagian tengahnya. Saat disajikan, telur Mata sapi goreng biasanya diberi sedikit garam, merica, atau rempah-rempah lainnya sesuai selera.</p>\\n        \\n        <p>Hidangan telur Mata sapi goreng sering dihidangkan dengan nasi hangat atau roti panggang sebagai lauk pendamping. Rasanya yang lezat, dengan kombinasi tekstur lembut dan kenyal dari kuning telur yang setengah matang dan putih telur yang matang, menjadikannya pilihan yang populer bagi pecinta telur.</p>\\n        \\n        <p>Selain enak, telur Mata sapi goreng juga merupakan sumber protein yang baik dan mengandung sejumlah vitamin dan mineral seperti vitamin B12, vitamin D, selenium, dan zat besi.</p>\\n        \\n        <p>Telur Mata sapi goreng adalah hidangan yang sederhana namun menggugah selera. Kelembutan kuning telur yang masih setengah matang dan tekstur putih telur yang matang membuatnya menjadi hidangan yang nikmat untuk dinikmati kapan pun Anda menginginkan hidangan telur yang berbeda dan menarik.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Telur Rebus Balado\",\n            \"label\": \"telur_rebus_balado\",\n            \"kkal\": 237,\n            \"description\": \"<p>Telur rebus balado adalah hidangan yang terdiri dari telur rebus yang disajikan dengan saus balado yang pedas dan beraroma menggugah selera. Proses memasak telur rebus balado dimulai dengan merebus telur hingga matang, kemudian dikupas kulitnya dan disajikan dengan saus balado yang khas.</p>\\n\\n        <p>Saus balado, yang berasal dari Padang, Sumatra Barat, adalah campuran bumbu pedas yang terbuat dari cabai merah, bawang merah, bawang putih, dan beberapa bahan tambahan seperti tomat, gula, dan garam. Bumbu-bumbu ini dihaluskan atau diolah menjadi pasta dan kemudian digoreng dalam minyak hingga menghasilkan saus kental yang merah dan beraroma menggugah selera.</p>\\n        \\n        <p>Telur rebus yang digunakan dalam hidangan ini biasanya dimasak hingga kuning telur matang sempurna dan putih telur yang kenyal. Setelah dikupas kulitnya, telur rebus tersebut disajikan dengan dituangi saus balado yang pedas dan sedikit asam. Kombinasi antara kelezatan telur rebus yang lembut dengan rasa pedas dan nikmatnya saus balado menciptakan harmoni cita rasa yang menarik.</p>\\n        \\n        <p>Hidangan telur rebus balado sering disajikan sebagai lauk pendamping nasi dalam hidangan utama. Rasanya yang pedas, gurih, dan sedikit asam menjadikannya pasangan yang sempurna dengan nasi hangat. Selain itu, telur rebus balado juga bisa dijadikan sebagai makanan ringan atau pelengkap dalam acara-acara khusus.</p>\\n        \\n        <p>Selain menawarkan rasa yang lezat, telur rebus balado juga mengandung nutrisi penting. Telur sendiri merupakan sumber protein yang baik, serta mengandung vitamin dan mineral esensial seperti vitamin B12, vitamin D, dan selenium.</p>\\n        \\n        <p>Dengan cita rasa yang pedas dan lezat, serta kandungan nutrisi yang bermanfaat, telur rebus balado menjadi salah satu hidangan favorit bagi pecinta masakan pedas dan merupakan contoh yang menggambarkan kekayaan kuliner Indonesia.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Tempe Goreng\",\n            \"label\": \"tempe_goreng\",\n            \"kkal\": 192,\n            \"description\": \"<p>Tempe goreng adalah hidangan yang populer dan lezat dalam kuliner Indonesia. Dalam pembuatan tempe goreng, tempe yang terbuat dari fermentasi kedelai digoreng hingga berwarna kecokelatan dan renyah di luar, namun tetap lembut di dalamnya.</p>\\n\\n        <p>Proses penggorengan tempe ini memberikan aroma yang menggugah selera dan tekstur yang menyenangkan saat dikunyah. Ketika digigit, Anda akan merasakan perpaduan antara kelembutan tempe yang masih kenyal di dalamnya dengan lapisan luar yang renyah dan garing.</p>\\n        \\n        <p>Tempe goreng memiliki citarasa yang khas, umumnya gurih dengan sentuhan manis dan sedikit rasa kecap yang terasa di dalamnya. Bumbu dan rempah-rempah seperti bawang putih, merica, dan garam sering digunakan untuk memberikan kelezatan tambahan pada tempe goreng.</p>\\n        \\n        <p>Hidangan ini sering disajikan sebagai lauk pendamping nasi, atau dapat pula dijadikan sebagai makanan ringan yang nikmat. Tempe goreng seringkali dihidangkan dengan sambal atau saus pedas sebagai pelengkap, sehingga memberikan rasa pedas yang menyegarkan.</p>\\n        \\n        <p>Selain enak, tempe goreng juga memiliki nilai gizi yang tinggi. Tempe itu sendiri adalah sumber protein nabati yang baik, rendah lemak, dan kaya akan serat. Ini menjadikannya sebagai pilihan makanan yang sehat dan bergizi.</p>\\n        \\n        <p>Dengan cita rasa yang lezat, tekstur yang renyah, serta manfaat kesehatan yang terkandung di dalamnya, tempe goreng telah menjadi hidangan yang sangat disukai dan terkenal di Indonesia, dan juga semakin dikenal di dunia internasional sebagai salah satu makanan Indonesia yang khas.</p>\",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:12:32.000Z\",\n            \"updatedAt\": \"2023-12-13T09:12:32.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 15,\n            \"name\": \"Ayam Goreng\",\n            \"label\": \"ayam_goreng\",\n            \"kkal\": 221,\n            \"description\": \"<p>Ayam goreng adalah hidangan populer di banyak negara di seluruh dunia, termasuk Indonesia. Hidangan ini terdiri dari potongan ayam yang digoreng hingga kulitnya menjadi renyah dan berwarna kecokelatan, sementara dagingnya tetap juicy dan lezat di dalamnya.</p>\\n\\n        <p>Proses memasak ayam goreng dimulai dengan membersihkan dan memotong ayam menjadi potongan-potongan yang sesuai. Potongan ayam kemudian dibumbui dengan campuran rempah-rempah seperti garam, merica, bawang putih, dan bumbu-bumbu lainnya. Selain itu, beberapa resep ayam goreng khas Indonesia juga menggunakan bumbu rempah tradisional seperti kunyit, ketumbar, atau serai untuk memberikan aroma dan rasa yang khas.</p>\\n        \\n        <p>Ayam kemudian digoreng dalam minyak panas hingga matang dan berkulit renyah. Teknik penggorengan yang baik akan menciptakan kulit ayam yang garing, renyah, dan berwarna kecokelatan yang menambahkan cita rasa khusus pada hidangan.</p>\\n        \\n        <p>Ayam goreng sering disajikan dengan nasi putih hangat, lalapan segar seperti mentimun dan tomat, serta sambal sebagai pelengkapnya. Hidangan ini bisa disantap sebagai hidangan utama dalam makanan sehari-hari, dalam hidangan nasi goreng, atau sebagai hidangan di berbagai acara dan perayaan.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang terkenal karena rasanya yang gurih dan lezat. Tekstur kulit ayam yang renyah dan daging ayam yang juicy dan lembut menjadikannya hidangan yang disukai oleh banyak orang. Variasi dalam bumbu dan rempah-rempah yang digunakan juga memberikan keunikan dalam cita rasa ayam goreng dari berbagai daerah.</p>\\n        \\n        <p>Ayam goreng adalah hidangan yang sering dijumpai di restoran, warung makan, atau di rumah-rumah sebagai hidangan favorit keluarga. Rasanya yang enak dan proses memasak yang relatif sederhana menjadikan ayam goreng sebagai salah satu hidangan yang populer dan disukai secara luas.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 16,\n            \"name\": \"Ayam Pop\",\n            \"label\": \"ayam_pop\",\n            \"kkal\": 265,\n            \"description\": \"<p>Ayam pop adalah hidangan khas dari Jawa Tengah, Indonesia. Hidangan ini terdiri dari potongan-potongan ayam yang digoreng hingga kulitnya menjadi renyah dan berwarna kecokelatan, namun tetap memiliki daging yang lembut dan juicy di dalamnya.</p>\\n\\n        <p>Proses memasak ayam pop dimulai dengan membersihkan dan memotong ayam menjadi potongan-potongan yang sesuai. Potongan ayam kemudian dibumbui dengan campuran rempah-rempah seperti bawang putih, merica, garam, dan bumbu-bumbu lainnya sesuai dengan selera. Ayam kemudian digoreng dalam minyak panas hingga matang dan berkulit renyah.</p>\\n        \\n        <p>Ayam pop memiliki ciri khas kulit ayam yang kering, renyah, dan berwarna kecokelatan. Meskipun kulitnya yang renyah, daging ayam di dalamnya tetap lembut dan juicy. Hal ini karena proses penggorengan yang tepat sehingga menjaga kelembutan daging ayam.</p>\\n        \\n        <p>Ayam pop sering disajikan dengan nasi putih hangat dan pelengkap seperti sambal, acar, atau sayuran rebus. Rasanya yang gurih, renyah di luar, dan lembut di dalam menjadikannya hidangan yang populer di kalangan pecinta masakan Indonesia.</p>\\n        \\n        <p>Hidangan ayam pop memiliki rasa yang lezat dan kaya rempah. Tekstur kulit ayam yang renyah dan daging yang juicy menciptakan kombinasi yang sempurna. Hidangan ini bisa dinikmati sebagai hidangan utama dalam makanan sehari-hari atau sebagai hidangan istimewa pada acara-acara khusus.</p>\\n        \\n        <p>Ayam pop merupakan salah satu hidangan yang mencerminkan keanekaragaman kuliner Indonesia dan menjadi favorit di berbagai daerah. Rasanya yang lezat dan proses memasaknya yang sederhana menjadikan ayam pop sebagai hidangan yang populer dan sering dicari oleh pecinta masakan Indonesia.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 17,\n            \"name\": \"Daging Rendang\",\n            \"label\": \"daging_rendang\",\n            \"kkal\": 238,\n            \"description\": \"<p>Daging rendang adalah hidangan khas Indonesia, khususnya dari daerah Minangkabau, Sumatra Barat. Hidangan ini terkenal karena proses memasak yang lama dan penggunaan berbagai rempah-rempah yang kaya.</p>\\n\\n        <p>Dalam pembuatan daging rendang, potongan daging sapi yang biasanya menggunakan potongan daging yang berlemak dan berurat, seperti daging sandung lamur atau daging sapi bagian pinggul, dimasak dalam campuran rempah-rempah yang khas. Beberapa rempah-rempah yang sering digunakan dalam rendang antara lain adalah cabai merah, bawang merah, bawang putih, serai, lengkuas, jahe, daun jeruk, kayu manis, dan kelapa parut.</p>\\n        \\n        <p>Proses memasak rendang melibatkan pemasakan yang lambat dan perlahan dalam campuran bumbu dan santan kelapa. Dalam proses ini, daging dan bumbu dimasak dalam waktu yang cukup lama hingga daging menjadi empuk, rempah-rempah meresap, dan kuah menyusut hingga mengental. Proses memasak yang lambat dan penggunaan berbagai rempah-rempah tersebut memberikan cita rasa yang kaya, kompleks, dan gurih pada daging rendang.</p>\\n        \\n        <p>Daging rendang memiliki cita rasa yang unik dengan perpaduan rasa pedas, gurih, manis, dan rempah-rempah yang khas. Daging yang dimasak dalam rendang menjadi empuk, lezat, dan memiliki tekstur yang kenyal karena penggunaan santan yang kental dan proses pemasakan yang lama.</p>\\n        \\n        <p>Rendang biasanya disajikan sebagai hidangan utama dalam makanan Indonesia dan sering dihidangkan dengan nasi putih hangat. Hidangan ini juga menjadi hidangan istimewa pada acara-acara tertentu seperti perayaan atau acara keluarga.</p>\\n        \\n        <p>Daging rendang adalah hidangan yang populer dan dihargai oleh banyak orang karena kelezatannya yang khas dan proses memasak yang melibatkan perpaduan rempah-rempah yang kompleks. Hidangan ini juga menjadi salah satu ikon kuliner Indonesia yang terkenal di dunia.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 18,\n            \"name\": \"Dendeng Batokok\",\n            \"label\": \"dendeng_batokok\",\n            \"kkal\": 250,\n            \"description\": \"<p>Dendeng batokok adalah hidangan daging asap kering yang berasal dari Minangkabau, Sumatra Barat, Indonesia. Hidangan ini terbuat dari daging sapi yang diiris tipis dan diolah dengan cara diasap dan dikeringkan hingga menjadi keripik daging yang renyah dan gurih.</p>\\n\\n        <p>Proses pembuatan dendeng batokok dimulai dengan memotong daging sapi menjadi irisan tipis dan merendamnya dalam bumbu marinasi yang terdiri dari campuran kecap manis, garam, bawang putih, merica, dan bumbu-bumbu lainnya sesuai dengan selera. Setelah direndam, irisan daging diangin-anginkan atau dikeringkan sebentar sebelum proses pengasapan.</p>\\n        \\n        <p>Daging sapi yang telah direndam kemudian diasap menggunakan kayu bakar atau arang dalam waktu yang cukup lama, sehingga mendapatkan aroma asap yang khas. Setelah proses pengasapan, irisan daging dikeringkan hingga menjadi keripik daging yang kering, renyah, dan memiliki rasa yang kaya.</p>\\n        \\n        <p>Dendeng batokok sering disajikan sebagai makanan ringan atau camilan yang nikmat. Hidangan ini dapat dinikmati secara langsung, digunakan sebagai tambahan dalam hidangan mie atau nasi goreng, atau dijadikan sebagai lauk pendamping dalam hidangan utama.</p>\\n        \\n        <p>Dendeng batokok memiliki cita rasa yang gurih, manis, asin, dan memiliki aroma yang khas karena proses pengasapannya. Tekstur keripik daging yang renyah dan daging yang sedikit kenyal membuatnya menjadi camilan yang populer di kalangan pecinta makanan Indonesia.</p>\\n        \\n        <p>Hidangan dendeng batokok merupakan salah satu contoh kuliner tradisional Minangkabau yang kaya akan rasa dan budaya. Rasanya yang khas dan kelezatannya membuatnya menjadi hidangan yang populer dan dicari oleh banyak orang yang ingin mencicipi kelezatan makanan khas Sumatra Barat.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 19,\n            \"name\": \"Gulai Ikan\",\n            \"label\": \"gulai_ikan\",\n            \"kkal\": 106,\n            \"description\": \"<p>Gulai ikan adalah hidangan yang terdiri dari potongan ikan yang dimasak dalam kuah gulai yang kaya rempah-rempah dan santan. Hidangan ini merupakan salah satu hidangan khas Indonesia dan dapat ditemukan dalam berbagai variasi dan gaya memasak di seluruh nusantara.</p>\\n\\n        <p>Proses memasak gulai ikan dimulai dengan memilih ikan segar dan membersihkannya. Ikan kemudian dipotong menjadi potongan-potongan yang sesuai dan dibumbui dengan garam dan air jeruk nipis untuk menghilangkan bau amisnya. Setelah itu, potongan ikan ditumis dengan bumbu-bumbu seperti bawang merah, bawang putih, jahe, lengkuas, serai, cabai, dan rempah-rempah lainnya sesuai selera.</p>\\n        \\n        <p>Setelah bumbu-bumbu matang, santan ditambahkan ke dalam tumisan dan diaduk hingga merata. Potongan ikan kemudian dimasukkan ke dalam kuah gulai dan dimasak hingga ikan matang dan meresap dengan rasa rempah yang kaya.</p>\\n        \\n        <p>Gulai ikan biasanya memiliki tekstur lembut dan cita rasa yang kaya dan lezat. Kuah gulai umumnya berwarna kekuningan atau kecokelatan karena penggunaan rempah-rempah seperti kunyit, lengkuas, dan cabai. Gulai ikan sering disajikan dengan nasi putih hangat sebagai hidangan utama dalam makanan Indonesia.</p>\\n        \\n        <p>Berdasarkan variasi dan budaya regional, ada banyak jenis gulai ikan yang berbeda, seperti gulai ikan mas, gulai ikan patin, gulai ikan kakap, dan lain-lain. Setiap varietas memiliki karakteristik dan bumbu khas yang membedakannya.</p>\\n        \\n        <p>Gulai ikan adalah hidangan yang lezat dan populer di Indonesia, dan dihargai karena kelezatan dan kekayaan rempah-rempahnya. Hidangan ini mencerminkan keanekaragaman budaya kuliner Indonesia serta penggunaan rempah-rempah yang khas dalam masakan tradisional.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 20,\n            \"name\": \"Gulai Tambusu\",\n            \"label\": \"gulai_tambusu\",\n            \"kkal\": 0,\n            \"description\": \"<p>Gulai tambusu adalah makanan khas dari Minang.Makanan ini terbuat dari bahan utama usus sapi. Usus sapi tersebut di dalamnya diberi isian telur dan tahu. Selanjutnya bahan utama itu dimasak dengan aneka bumbu, rempah-rempah, dan santan. Gulai tambusu termasuk hidangan berkuah yang kuahnya berasal dari santan kelapa.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 21,\n            \"name\": \"Gulai Tunjang\",\n            \"label\": \"gulai_tunjang\",\n            \"kkal\": 61,\n            \"description\": \"Gulai tunjang adalah hidangan tradisional yang berasal dari Minangkabau, Sumatra Barat, Indonesia. Hidangan ini terkenal karena menggunakan bahan utama berupa tulang kaki atau kaki sapi yang dimasak dengan bumbu rempah-rempah yang kaya dan kental.\\n\\n        Proses pembuatan gulai tunjang dimulai dengan merebus kaki sapi hingga empuk dan dagingnya terlepas dari tulangnya. Setelah itu, kaki sapi dipotong menjadi potongan kecil dan dimasak dalam kuah gulai yang kaya rempah-rempah.\\n        \\n        Bumbu gulai tunjang terdiri dari campuran rempah-rempah seperti lengkuas, kunyit, jahe, bawang merah, bawang putih, serai, daun jeruk, cabai, dan rempah lainnya. Bumbu-bumbu ini dihaluskan atau diolah menjadi pasta, kemudian ditumis dengan minyak kelapa untuk mengeluarkan aroma dan rasa yang khas.\\n        \\n        Setelah bumbu tumis matang, potongan kaki sapi dimasukkan ke dalam bumbu dan kuah gulai. Proses memasak dilanjutkan dengan merebus kembali dan membiarkan semua bumbu meresap ke dalam daging dan tulang sapi, menciptakan rasa yang kaya dan lezat.\\n        \\n        Gulai tunjang biasanya memiliki cita rasa yang kaya, pedas, dan rempah-rempah yang khas. Hidangan ini sering disajikan dengan nasi putih hangat, roti, atau ketupat, serta ditambahkan dengan lalapan seperti daun singkong atau daun kemangi untuk menyempurnakan rasanya.\\n        \\n        Gulai tunjang merupakan hidangan yang membutuhkan waktu dan kesabaran dalam proses memasaknya. Namun, hasilnya adalah hidangan yang lezat dan menggugah selera, dengan daging yang empuk dan tulang yang lepas dari daging, sehingga membuatnya menjadi hidangan yang disukai oleh pecinta masakan Minangkabau.\",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 22,\n            \"name\": \"Lele Goreng\",\n            \"label\": \"lele_goreng\",\n            \"kkal\": 105,\n            \"description\": \"<p>Lele goreng adalah hidangan yang terdiri dari ikan lele yang digoreng hingga renyah di luar namun tetap juicy dan lembut di dalamnya. Hidangan ini populer dalam kuliner Indonesia dan merupakan salah satu hidangan favorit di banyak restoran dan warung makan.</p>\\n\\n        <p>Proses memasak lele goreng dimulai dengan membersihkan ikan lele dan mengeringkannya. Ikan lele kemudian dibumbui dengan campuran rempah-rempah seperti garam, merica, bawang putih, dan bumbu-bumbu lainnya. Setelah itu, ikan lele digoreng dalam minyak panas hingga berwarna kecokelatan dan renyah di luar, sementara tetap lembut dan juicy di dalamnya.</p>\\n        \\n        <p>Lele goreng sering disajikan dengan pelengkap seperti nasi putih, sambal, atau lalapan seperti mentimun dan tomat. Rasanya yang gurih, renyah di luar, dan lembut di dalam membuatnya menjadi hidangan yang sangat nikmat dan disukai oleh banyak orang.</p>\\n        \\n        <p>Selain kelezatannya, lele goreng juga mengandung nutrisi penting. Lele adalah sumber protein yang baik, serta mengandung asam lemak omega-3, vitamin D, dan mineral seperti selenium dan fosfor. Ini menjadikannya pilihan yang baik untuk mendapatkan asupan nutrisi yang seimbang.</p>\\n        \\n        <p>Lele goreng adalah hidangan yang cocok untuk dinikmati dalam berbagai kesempatan, baik sebagai hidangan utama dalam makan siang atau makan malam, maupun sebagai hidangan pelengkap dalam menu makanan Indonesia. Kombinasi cita rasa yang gurih, tekstur yang renyah, dan kandungan gizi yang bermanfaat menjadikan lele goreng sebagai hidangan yang populer dan terus diminati.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 23,\n            \"name\": \"Nasi\",\n            \"label\": \"nasi\",\n            \"kkal\": 252,\n            \"description\": \"<p>Nasi adalah makanan pokok yang sangat penting dalam banyak budaya di seluruh dunia, terutama di Asia. Nasi merupakan biji-bijian dari tanaman padi yang diolah dan dimasak menjadi hidangan yang lezat dan bergizi.</p>\\n\\n        <p>Proses produksi nasi dimulai dengan menanam, panen, dan menggiling padi. Setelah itu, padi dapat diolah dengan berbagai cara, seperti merebus, mengukus, atau menggunakan alat khusus seperti rice cooker. Hasil akhirnya adalah butiran nasi yang lembut, beraroma harum, dan memiliki tekstur yang kenyal.</p>\\n        \\n        <p>Nasi sering disajikan sebagai lauk pendamping atau dasar dalam hidangan utama. Banyak hidangan seperti nasi goreng, nasi kuning, nasi putih, nasi biryani, dan sushi menggunakan nasi sebagai komponen utama. Nasi juga dapat disajikan dengan berbagai hidangan seperti daging, ikan, sayuran, atau hidangan berkuah.</p>\\n        \\n        <p>Kelezatan nasi tidak hanya berasal dari rasanya yang netral dan komplementer terhadap hidangan lainnya, tetapi juga dari kemampuannya untuk menyerap cita rasa dan saus yang digunakan dalam hidangan. Hal ini menjadikan nasi sebagai pendamping yang serbaguna untuk hidangan berbagai budaya dan masakan.</p>\\n        \\n        <p>Selain sebagai sumber karbohidrat yang penting, nasi juga mengandung sejumlah nutrisi seperti vitamin B, serat, dan mineral seperti zat besi dan magnesium. Nasi juga rendah lemak dan bebas gluten, menjadikannya pilihan yang populer di berbagai pola makan.</p>\\n        \\n        <p>Nasi memiliki peran kultural yang kuat dan sering menjadi simbol kesuburan, kelimpahan, dan persatuan dalam banyak masyarakat. Cara memasak, menyajikan, dan mengonsumsi nasi dapat bervariasi dari satu budaya ke budaya lainnya.</p>\\n        \\n        <p>Nasi adalah makanan yang mendalam maknanya dan menjadi bagian penting dalam hidangan di berbagai belahan dunia. Rasanya yang lezat, teksturnya yang kenyal, serta peran budaya dan gizi yang dimilikinya menjadikannya sebagai makanan yang dicintai dan dikonsumsi oleh banyak orang di seluruh dunia.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 24,\n            \"name\": \"Tahu Goreng\",\n            \"label\": \"tahu_goreng\",\n            \"kkal\": 35,\n            \"description\": \"<p>Tahu goreng adalah hidangan yang terdiri dari tahu yang digoreng hingga renyah di luar namun tetap lembut di dalamnya. Hidangan ini populer dalam kuliner Indonesia dan dapat ditemukan dalam berbagai variasi dan gaya memasak.</p>\\n\\n        <p>Proses pembuatan tahu goreng dimulai dengan memotong tahu menjadi potongan-potongan kecil atau membelahnya menjadi dua bagian tipis. Tahu kemudian bisa direndam dalam bumbu atau saus untuk memberikan rasa tambahan sebelum digoreng. Setelah itu, tahu digoreng dalam minyak panas hingga berwarna kecokelatan dan renyah di luar.</p>\\n        \\n        <p>Tahu goreng sering disajikan dengan pelengkap seperti saus kacang, saus pedas, atau saus kecap. Hidangan ini dapat dijadikan lauk pendamping dalam nasi goreng, mi goreng, atau sebagai makanan ringan yang lezat.</p>\\n        \\n        <p>Tahu, bahan utama dalam tahu goreng, adalah produk kedelai yang kaya akan protein nabati, serat, dan nutrisi lainnya. Dengan menggoreng tahu, hidangan ini menghasilkan tekstur yang lembut di dalam dan lapisan luar yang garing. Tahu goreng juga dapat disesuaikan dengan selera masing-masing, baik dengan menambahkan bumbu khusus pada tahu sebelum digoreng atau dengan menyajikannya dengan saus atau tambahan lainnya.</p>\\n        \\n        <p>Tahu goreng adalah hidangan yang populer dan banyak disukai oleh banyak orang karena rasanya yang gurih dan teksturnya yang menarik. Hidangan ini tidak hanya cocok untuk vegetarian, tetapi juga merupakan pilihan yang sehat dan bergizi bagi siapa pun yang menginginkan hidangan yang lezat dan bernutrisi.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 25,\n            \"name\": \"Telur Dadar Goreng\",\n            \"label\": \"telur_dadar_goreng\",\n            \"kkal\": 153,\n            \"description\": \"<p>Telur dadar goreng adalah hidangan yang terdiri dari telur yang dikocok bersama bumbu-bumbu dan digoreng hingga matang. Hidangan ini sederhana namun lezat dan sering menjadi bagian dari menu sarapan atau makanan ringan di banyak budaya di seluruh dunia.</p>\\n\\n        <p>Untuk membuat telur dadar goreng, telur dipecahkan dan dikocok bersama dengan garam, merica, dan bumbu lainnya sesuai selera. Kemudian, campuran telur ini digoreng di atas wajan dengan sedikit minyak atau mentega hingga matang. Proses ini menghasilkan selembar telur dadar yang tipis dan lembut.</p>\\n        \\n        <p>Telur dadar goreng bisa disajikan dengan berbagai cara. Beberapa orang menyukai telur dadar yang simpel, tanpa tambahan bahan lainnya. Namun, Anda juga dapat menambahkan irisan bawang hijau, daun peterseli, keju parut, potongan sayuran, atau daging cincang ke dalam adonan telur sebelum digoreng untuk memberikan variasi rasa dan tekstur.</p>\\n        \\n        <p>Telur dadar goreng sering disajikan dengan nasi hangat, roti panggang, atau bagian dari menu sarapan lengkap dengan lauk pendamping seperti sosis, bacon, atau ham. Rasanya yang lezat, serta tekstur lembut dan padat dari telur dadar, menjadikannya hidangan yang memuaskan dan mudah disesuaikan dengan selera individu.</p>\\n        \\n        <p>Selain enak, telur dadar goreng juga merupakan sumber protein yang baik dan mengandung nutrisi penting seperti vitamin A, vitamin B12, zat besi, dan selenium. Ini menjadikannya pilihan makanan yang bergizi untuk memulai hari atau sebagai camilan yang menyenangkan.</p>\\n        \\n        <p>Telur dadar goreng adalah hidangan yang sederhana namun serbaguna, cocok untuk dinikmati dalam berbagai kesempatan. Kelezatan dan kemudahannya dalam persiapan menjadikannya sebagai salah satu hidangan favorit di meja makan banyak orang di seluruh dunia.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 26,\n            \"name\": \"Telur Mata Sapi Goreng\",\n            \"label\": \"telur_matasapi_goreng\",\n            \"kkal\": 120,\n            \"description\": \"<p>Telur Mata sapi goreng adalah hidangan yang terdiri dari telur yang digoreng dengan kuning telur yang masih setengah matang, sehingga terlihat seperti &quot;mata sapi&quot; yang belum sepenuhnya matang. Hidangan ini populer di berbagai negara dan sering disajikan sebagai lauk pendamping dalam menu sarapan atau makan siang.</p>\\n\\n        <p>Proses memasak telur Mata sapi goreng dimulai dengan memanaskan sedikit minyak di atas wajan anti lengket. Setelah minyak panas, telur pecah di atas wajan, tetapi kuning telur tidak dipecahkan. Telur kemudian digoreng dengan api sedang hingga putih telur matang dengan kuning telur yang masih setengah matang.</p>\\n        \\n        <p>Hasilnya adalah telur dengan putih telur yang padat dan kuning telur yang lembut dan sedikit berair di bagian tengahnya. Saat disajikan, telur Mata sapi goreng biasanya diberi sedikit garam, merica, atau rempah-rempah lainnya sesuai selera.</p>\\n        \\n        <p>Hidangan telur Mata sapi goreng sering dihidangkan dengan nasi hangat atau roti panggang sebagai lauk pendamping. Rasanya yang lezat, dengan kombinasi tekstur lembut dan kenyal dari kuning telur yang setengah matang dan putih telur yang matang, menjadikannya pilihan yang populer bagi pecinta telur.</p>\\n        \\n        <p>Selain enak, telur Mata sapi goreng juga merupakan sumber protein yang baik dan mengandung sejumlah vitamin dan mineral seperti vitamin B12, vitamin D, selenium, dan zat besi.</p>\\n        \\n        <p>Telur Mata sapi goreng adalah hidangan yang sederhana namun menggugah selera. Kelembutan kuning telur yang masih setengah matang dan tekstur putih telur yang matang membuatnya menjadi hidangan yang nikmat untuk dinikmati kapan pun Anda menginginkan hidangan telur yang berbeda dan menarik.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 27,\n            \"name\": \"Telur Rebus Balado\",\n            \"label\": \"telur_rebus_balado\",\n            \"kkal\": 237,\n            \"description\": \"<p>Telur rebus balado adalah hidangan yang terdiri dari telur rebus yang disajikan dengan saus balado yang pedas dan beraroma menggugah selera. Proses memasak telur rebus balado dimulai dengan merebus telur hingga matang, kemudian dikupas kulitnya dan disajikan dengan saus balado yang khas.</p>\\n\\n        <p>Saus balado, yang berasal dari Padang, Sumatra Barat, adalah campuran bumbu pedas yang terbuat dari cabai merah, bawang merah, bawang putih, dan beberapa bahan tambahan seperti tomat, gula, dan garam. Bumbu-bumbu ini dihaluskan atau diolah menjadi pasta dan kemudian digoreng dalam minyak hingga menghasilkan saus kental yang merah dan beraroma menggugah selera.</p>\\n        \\n        <p>Telur rebus yang digunakan dalam hidangan ini biasanya dimasak hingga kuning telur matang sempurna dan putih telur yang kenyal. Setelah dikupas kulitnya, telur rebus tersebut disajikan dengan dituangi saus balado yang pedas dan sedikit asam. Kombinasi antara kelezatan telur rebus yang lembut dengan rasa pedas dan nikmatnya saus balado menciptakan harmoni cita rasa yang menarik.</p>\\n        \\n        <p>Hidangan telur rebus balado sering disajikan sebagai lauk pendamping nasi dalam hidangan utama. Rasanya yang pedas, gurih, dan sedikit asam menjadikannya pasangan yang sempurna dengan nasi hangat. Selain itu, telur rebus balado juga bisa dijadikan sebagai makanan ringan atau pelengkap dalam acara-acara khusus.</p>\\n        \\n        <p>Selain menawarkan rasa yang lezat, telur rebus balado juga mengandung nutrisi penting. Telur sendiri merupakan sumber protein yang baik, serta mengandung vitamin dan mineral esensial seperti vitamin B12, vitamin D, dan selenium.</p>\\n        \\n        <p>Dengan cita rasa yang pedas dan lezat, serta kandungan nutrisi yang bermanfaat, telur rebus balado menjadi salah satu hidangan favorit bagi pecinta masakan pedas dan merupakan contoh yang menggambarkan kekayaan kuliner Indonesia.</p>\\n        \",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 28,\n            \"name\": \"Tempe Goreng\",\n            \"label\": \"tempe_goreng\",\n            \"kkal\": 192,\n            \"description\": \"<p>Tempe goreng adalah hidangan yang populer dan lezat dalam kuliner Indonesia. Dalam pembuatan tempe goreng, tempe yang terbuat dari fermentasi kedelai digoreng hingga berwarna kecokelatan dan renyah di luar, namun tetap lembut di dalamnya.</p>\\n\\n        <p>Proses penggorengan tempe ini memberikan aroma yang menggugah selera dan tekstur yang menyenangkan saat dikunyah. Ketika digigit, Anda akan merasakan perpaduan antara kelembutan tempe yang masih kenyal di dalamnya dengan lapisan luar yang renyah dan garing.</p>\\n        \\n        <p>Tempe goreng memiliki citarasa yang khas, umumnya gurih dengan sentuhan manis dan sedikit rasa kecap yang terasa di dalamnya. Bumbu dan rempah-rempah seperti bawang putih, merica, dan garam sering digunakan untuk memberikan kelezatan tambahan pada tempe goreng.</p>\\n        \\n        <p>Hidangan ini sering disajikan sebagai lauk pendamping nasi, atau dapat pula dijadikan sebagai makanan ringan yang nikmat. Tempe goreng seringkali dihidangkan dengan sambal atau saus pedas sebagai pelengkap, sehingga memberikan rasa pedas yang menyegarkan.</p>\\n        \\n        <p>Selain enak, tempe goreng juga memiliki nilai gizi yang tinggi. Tempe itu sendiri adalah sumber protein nabati yang baik, rendah lemak, dan kaya akan serat. Ini menjadikannya sebagai pilihan makanan yang sehat dan bergizi.</p>\\n        \\n        <p>Dengan cita rasa yang lezat, tekstur yang renyah, serta manfaat kesehatan yang terkandung di dalamnya, tempe goreng telah menjadi hidangan yang sangat disukai dan terkenal di Indonesia, dan juga semakin dikenal di dunia internasional sebagai salah satu makanan Indonesia yang khas.</p>\",\n            \"image\": \"\",\n            \"createdAt\": \"2023-12-13T09:21:27.000Z\",\n            \"updatedAt\": \"2023-12-13T09:21:27.000Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "CREATE MENU",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "103811948_p0.png"
+								},
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "kkal",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "asdasda",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/menus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "kkal",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "asdasda",
+											"type": "text"
+										},
+										{
+											"key": "label",
+											"value": "test_label",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/menus",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menus"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "204"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cc-nDgEn2otLteRE7crO2ONBwMcTLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:23:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Create Menu Success\",\n    \"data\": {\n        \"id\": 29,\n        \"name\": \"test\",\n        \"kkal\": \"100\",\n        \"description\": \"asdasda\",\n        \"updatedAt\": \"2023-12-13T10:23:41.257Z\",\n        \"createdAt\": \"2023-12-13T10:23:41.257Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE MENU",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/menus/2?permanent=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus",
+								"2"
+							],
+							"query": [
+								{
+									"key": "permanent",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/menus/2?permanent=0",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menus",
+										"2"
+									],
+									"query": [
+										{
+											"key": "permanent",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"43-8feIE/GBsGrPDY8FKbZxz8jTEJE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:24:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Delete Menu Success\",\n    \"data\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE MENU",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Update",
+									"type": "text"
+								},
+								{
+									"key": "kkal",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test Update Deskripsi",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "103677160_p0.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/menus/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Test Update",
+											"type": "text"
+										},
+										{
+											"key": "kkal",
+											"value": "200",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Test Update Deskripsi",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/menus/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"menus",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-Iz8+izCSSkCBRrPjL56tb++VWaI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:24:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Update Menu Success\",\n    \"data\": [\n        1\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "ALL USERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "223"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"df-VoWxglJoJdBKnjcUR+cPkeG7jHo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:25:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get All Users Success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Ingwer Ludwig\",\n            \"email\": \"ingwer@gmail.com\",\n            \"createdAt\": \"2023-12-13T09:16:10.000Z\",\n            \"updatedAt\": \"2023-12-13T09:28:01.000Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "USER BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "222"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"de-Vv7ZsAT5fd4K6cklAxDWOb1hez8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:25:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get User By Id Success\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Ingwer Ludwig\",\n        \"email\": \"ingwer@gmail.com\",\n        \"createdAt\": \"2023-12-13T09:16:10.000Z\",\n        \"updatedAt\": \"2023-12-13T09:28:01.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE USER BY ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Update",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Ingwer Update",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/users/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-1ktIc4jith1M9u/Eg8/nYy/Ibjk\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:26:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Update User Success\",\n    \"data\": [\n        1\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "CURRENT USER",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "222"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"de-/Zs4ws+v+E2kkqVUsR280zpb56Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 10:26:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get User By Id Success\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Ingwer Update\",\n        \"email\": \"ingwer@gmail.com\",\n        \"createdAt\": \"2023-12-13T09:16:10.000Z\",\n        \"updatedAt\": \"2023-12-13T10:26:08.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "FORUMS",
+			"item": [
+				{
+					"name": "COMMENTS",
+					"item": [
+						{
+							"name": "CREATE FORUM COMMENT",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "comment",
+											"value": "Test Comment Cuy",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/forums/2/comments",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"forums",
+										"2",
+										"comments"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "SUCCESS",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "comment",
+													"value": "Test Comment Cuy",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{host}}/forums/1/comments",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"forums",
+												"1",
+												"comments"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "221"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"dd-9sAw5b8GRB5cfrX5JRtl96Bic1Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 13 Dec 2023 11:21:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Forum comment created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"comment\": \"Test Comment Cuy\",\n        \"UserId\": 1,\n        \"ForumId\": \"1\",\n        \"updatedAt\": \"2023-12-13T11:21:43.025Z\",\n        \"createdAt\": \"2023-12-13T11:21:43.025Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "EDIT FORUM COMMENT",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "comment",
+											"value": "Test Edit",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/forums/comments/5",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"forums",
+										"comments",
+										"5"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "SUCCCESS",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "comment",
+													"value": "Test Edit",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{host}}/forums/comments/1",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"forums",
+												"comments",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "84"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"54-U3LtWMVrenY63QYD2axsV0vLxVY\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 13 Dec 2023 11:22:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Forum comment updated successfully\",\n    \"data\": [\n        1\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "DELETE FORUM COMMENT",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/forums/comments/6",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"forums",
+										"comments",
+										"6"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/forums/comments/6",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"forums",
+												"comments",
+												"6"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "82"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"52-1ZDUFee2Keuw0YnzqmGJA9weigg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 10 Jun 2023 13:14:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Forum comment deleted successfully\",\n    \"data\": 1\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "ALL FORUMS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/forums",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forums"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/forums",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"forums"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "272"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"110-xg1Qz5Xn7OFTvcaSR1xAfqzsLBc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 11:17:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get all forums successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"title\",\n            \"image\": null,\n            \"description\": \"desc\",\n            \"createdAt\": \"2023-12-13T11:17:31.000Z\",\n            \"updatedAt\": \"2023-12-13T11:17:31.000Z\",\n            \"UserId\": 1,\n            \"CommentCount\": 0,\n            \"User\": {\n                \"name\": \"Ingwer Ludwig\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "FORUM BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/forums/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forums",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/forums/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"forums",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "273"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"111-uG8UuclNLOOP3MtUjUZILXEB0pw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 11:21:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get forum by id successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"title\",\n        \"image\": null,\n        \"description\": \"desc\",\n        \"createdAt\": \"2023-12-13T11:21:07.000Z\",\n        \"updatedAt\": \"2023-12-13T11:21:07.000Z\",\n        \"UserId\": 1,\n        \"User\": {\n            \"name\": \"Ingwer Ludwig\"\n        },\n        \"ForumComments\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "MY FORUMS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/forums/my",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forums",
+								"my"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/forums/my",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"forums",
+										"my"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "272"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"110-xg1Qz5Xn7OFTvcaSR1xAfqzsLBc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 11:18:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get all forums successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"title\",\n            \"image\": null,\n            \"description\": \"desc\",\n            \"createdAt\": \"2023-12-13T11:17:31.000Z\",\n            \"updatedAt\": \"2023-12-13T11:17:31.000Z\",\n            \"UserId\": 1,\n            \"CommentCount\": 0,\n            \"User\": {\n                \"name\": \"Ingwer Ludwig\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "FORUMS USER BY USER ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/forums/user/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forums",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/forums/user/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"forums",
+										"user",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "272"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"110-xg1Qz5Xn7OFTvcaSR1xAfqzsLBc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 11:18:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Get all forums successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"title\",\n            \"image\": null,\n            \"description\": \"desc\",\n            \"createdAt\": \"2023-12-13T11:17:31.000Z\",\n            \"updatedAt\": \"2023-12-13T11:17:31.000Z\",\n            \"UserId\": 1,\n            \"CommentCount\": 0,\n            \"User\": {\n                \"name\": \"Ingwer Ludwig\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "CREATE FORUM",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "103811948_p0.png"
+								},
+								{
+									"key": "title",
+									"value": "title",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "desc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/forums",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forums"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "title",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "desc",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/forums",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"forums"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "207"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cf-3jM6q024ISY1KZRfAAJrgTL4Gp8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 11:14:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Forum created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"title\",\n        \"description\": \"desc\",\n        \"UserId\": 1,\n        \"updatedAt\": \"2023-12-13T11:14:15.201Z\",\n        \"createdAt\": \"2023-12-13T11:14:15.201Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "EDIT FORUM",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "103677160_p0.jpg"
+								},
+								{
+									"key": "title",
+									"value": "Title Edit",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Desc Edit",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/forums/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forums",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SUCCCESS",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "Title Edit",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Desc Edit",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/forums/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"forums",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c-xjtMaxNH9HogGYsXPx4O0GbpGqM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Dec 2023 11:26:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Forum updated successfully\",\n    \"data\": [\n        1\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE FORUM",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/forums/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forums",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE FORUM",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/forums/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"forums",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-jbX7GvLCUr24ybUcHvw3aFpNIUI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Jun 2023 12:52:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 200,\n    \"message\": \"Forum deleted successfully\",\n    \"data\": 1\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PREDICT IMAGE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/cahya/Downloads/download.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/predict",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/ingwerludwig/Documents/asal-usul-tempe-yang-jadi-makanan-vegan-terenak-di-dunia-8pY5Dnq5Pb.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/predict",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"predict"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1865"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"749-QvmfWRPsoG3aKK3UEYB76Z6y5FI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Dec 2023 11:30:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Success\",\n    \"data\": {\n        \"id\": 14,\n        \"name\": \"Tempe Goreng\",\n        \"label\": \"tempe_goreng\",\n        \"kkal\": 192,\n        \"description\": \"<p>Tempe goreng adalah hidangan yang populer dan lezat dalam kuliner Indonesia. Dalam pembuatan tempe goreng, tempe yang terbuat dari fermentasi kedelai digoreng hingga berwarna kecokelatan dan renyah di luar, namun tetap lembut di dalamnya.</p>\\n\\n        <p>Proses penggorengan tempe ini memberikan aroma yang menggugah selera dan tekstur yang menyenangkan saat dikunyah. Ketika digigit, Anda akan merasakan perpaduan antara kelembutan tempe yang masih kenyal di dalamnya dengan lapisan luar yang renyah dan garing.</p>\\n        \\n        <p>Tempe goreng memiliki citarasa yang khas, umumnya gurih dengan sentuhan manis dan sedikit rasa kecap yang terasa di dalamnya. Bumbu dan rempah-rempah seperti bawang putih, merica, dan garam sering digunakan untuk memberikan kelezatan tambahan pada tempe goreng.</p>\\n        \\n        <p>Hidangan ini sering disajikan sebagai lauk pendamping nasi, atau dapat pula dijadikan sebagai makanan ringan yang nikmat. Tempe goreng seringkali dihidangkan dengan sambal atau saus pedas sebagai pelengkap, sehingga memberikan rasa pedas yang menyegarkan.</p>\\n        \\n        <p>Selain enak, tempe goreng juga memiliki nilai gizi yang tinggi. Tempe itu sendiri adalah sumber protein nabati yang baik, rendah lemak, dan kaya akan serat. Ini menjadikannya sebagai pilihan makanan yang sehat dan bergizi.</p>\\n        \\n        <p>Dengan cita rasa yang lezat, tekstur yang renyah, serta manfaat kesehatan yang terkandung di dalamnya, tempe goreng telah menjadi hidangan yang sangat disukai dan terkenal di Indonesia, dan juga semakin dikenal di dunia internasional sebagai salah satu makanan Indonesia yang khas.</p>\",\n        \"image\": \"\",\n        \"createdAt\": \"2023-12-13T11:20:02.000Z\",\n        \"updatedAt\": \"2023-12-13T11:20:02.000Z\",\n        \"deletedAt\": null\n    }\n}"
+				}
+			]
+		}
+	]
+}
